@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import "~bulma/bulma.sass";
+
+.box-shadow-b {
+  box-shadow: 0 0.125em 0.25em rgba(10, 10, 10, 0.1);
+}
+
+.amortization-info {
+  .columns:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
