@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Amortization calculator`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Do you want to calculate your mortgage loan? Do you want to check a way to save money giving an extra payment? With the amortization calculator you can add extra payments per month and check how many months or years you are saving just with a couple of extra bucks every month.`,
     author: `@gavarela90`,
   },
   plugins: [
