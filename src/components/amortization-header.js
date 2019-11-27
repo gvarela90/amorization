@@ -8,7 +8,7 @@ export function AmortizationHeader({ amortizationData }) {
   return (
     <div className="content">
       <div className="columns is-mobile is-variable is-5">
-        <div className="column is-half">
+        <div className="column">
           <div className="columns">
             <div className="column is-half has-text-weight-bold">
               Scheduled number of payments:
@@ -40,7 +40,7 @@ export function AmortizationHeader({ amortizationData }) {
         </div>
 
         {amortizationData.earlyPayments > 0 && (
-          <div className="column is-half">
+          <div className="column">
             <div className="columns">
               <div className="column is-half has-text-weight-bold">
                 Actual number of payments:
