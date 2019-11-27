@@ -20,7 +20,7 @@ export function AmortizationHeader({ amortizationData }) {
           </div>
           <div className="columns">
             <div className="column is-half has-text-weight-bold">
-              Scheduled Total interest
+              Scheduled total interest
             </div>
             <div className="column is-half has-text-right">
               {format(amortizationData.scheduledAcumulativeInterest)}
@@ -72,7 +72,7 @@ export function AmortizationHeader({ amortizationData }) {
             </div>
             <div className="columns">
               <div className="column is-half has-text-weight-bold">
-                Actual Total interest:
+                Actual total interest:
               </div>
               <div className="column is-half has-text-right">
                 {format(amortizationData.cumulativeInterest)}
@@ -88,7 +88,7 @@ export function AmortizationHeader({ amortizationData }) {
             </div>
             <div className="columns">
               <div className="column is-half has-text-weight-bold">
-                Actual Total paid:
+                Actual total paid:
               </div>
               <div className="column is-half has-text-right">
                 {format(

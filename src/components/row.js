@@ -20,6 +20,7 @@ export function Row({ index, onExtraPrincipalChange, values }) {
       <td>{format(remaining)}</td>
       <td>{format(scheduledPayment)}</td>
       <td>{format(principal)}</td>
+      <td>{format(interest)}</td>
       <td>
         <input
           className="input"
@@ -28,7 +29,6 @@ export function Row({ index, onExtraPrincipalChange, values }) {
           onChange={e => onExtraPrincipalChange(index, e.target.value)}
         />
       </td>
-      <td>{format(interest)}</td>
       <td>{format(totalPayment)}</td>
       <td>{format(endingBalance)}</td>
       <td>{format(cumulativeInterest)}</td>

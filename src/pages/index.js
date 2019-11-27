@@ -115,6 +115,7 @@ export default class IndexPage extends React.Component {
       interestRate,
       periods,
       extraPrincipal,
+      extraPrincipals: {},
       submitted: true,
     })
   }
@@ -149,8 +150,8 @@ export default class IndexPage extends React.Component {
                       <td>Beginning Balance</td>
                       <td>Scheduled Payment</td>
                       <td>Principal</td>
-                      <td>Extra Principal</td>
                       <td>Interest</td>
+                      <td>Extra Principal</td>
                       <td>Total Payment</td>
                       <td>Ending Balance</td>
                       <td>Cumulative Interest</td>
