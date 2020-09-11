@@ -8,6 +8,8 @@ import { Row } from "../components/row"
 import { AmortizationHeader } from "../components/amortization-header"
 import { pmt, getPeriodData } from "../utils"
 
+const windowGlobal = typeof window !== "undefined" && window
+
 export default class IndexPage extends React.Component {
   constructor(props) {
     super(props)
@@ -22,11 +24,13 @@ export default class IndexPage extends React.Component {
       canBeSaved: false,
     }
 
-    const dataStored = localStorage.getItem("data")
-    if (dataStored) {
-      this.state = {
-        ...this.state,
-        ...JSON.parse(dataStored),
+    if (windowGlobal) {
+      const dataStored = windowGlobal.localStorage.getItem("data")
+      if (dataStored) {
+        this.state = {
+          ...this.state,
+          ...JSON.parse(dataStored),
+        }
       }
     }
   }
@@ -149,7 +153,8 @@ export default class IndexPage extends React.Component {
       submitted,
       canBeSaved,
     }
-    localStorage.setItem("data", JSON.stringify(dataToSave))
+    windowGlobal &&
+      windowGlobal.localStorage.setItem("data", JSON.stringify(dataToSave))
   }
 
   render() {
