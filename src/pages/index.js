@@ -3,7 +3,7 @@ import "../styles/index.scss"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Form } from "../components/form"
+import { Form } from "../components/Form"
 import { Row } from "../components/row"
 import { AmortizationHeader } from "../components/amortization-header"
 import { pmt, getPeriodData } from "../utils"
@@ -19,6 +19,15 @@ export default class IndexPage extends React.Component {
       extraPrincipals: {},
       startDate: new Date(),
       submitted: false,
+      canBeSaved: false,
+    }
+
+    const dataStored = localStorage.getItem("data")
+    if (dataStored) {
+      this.state = {
+        ...this.state,
+        ...JSON.parse(dataStored),
+      }
     }
   }
 
@@ -117,7 +126,30 @@ export default class IndexPage extends React.Component {
       extraPrincipal,
       extraPrincipals: {},
       submitted: true,
+      canBeSaved: true,
     })
+  }
+
+  onSave = () => {
+    const {
+      loanAmount,
+      interestRate,
+      periods,
+      extraPrincipals,
+      extraPrincipal,
+      submitted,
+      canBeSaved,
+    } = this.state
+    const dataToSave = {
+      loanAmount,
+      interestRate,
+      periods,
+      extraPrincipals,
+      extraPrincipal,
+      submitted,
+      canBeSaved,
+    }
+    localStorage.setItem("data", JSON.stringify(dataToSave))
   }
 
   render() {
@@ -126,7 +158,25 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <Form onSubmit={this.onSubmit} />
+        <div className="card">
+          <header className="card-header">
+            <div className="column is-half">
+              <p className="card-header-title is-uppercase">Calculator</p>
+            </div>
+            {this.state.canBeSaved && (
+              <div className="column is-half has-text-right">
+                <button
+                  type="button"
+                  className="button is-primary"
+                  onClick={this.onSave}
+                >
+                  Save
+                </button>
+              </div>
+            )}
+          </header>
+          <Form onSubmit={this.onSubmit} initialValues={this.state} />
+        </div>
 
         {this.state.submitted && (
           <div className="card">
